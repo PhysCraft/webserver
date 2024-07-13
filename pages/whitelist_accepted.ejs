@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhysCraft Homepage</title>
+
+    <link href="./static/styles.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card shadow p-4" style="width: 100%; max-width: 600px;">
+            <div class="card-body text-center">
+                <h1 class="display-4">PhysCraft</h1>
+                <section class="mt-4">
+                    <h3 class="text-success">Whitelisted</h3>
+
+                    <div class="alert alert-success mt-3">
+                        <p>You are now whitelisted and can join the server!</p>
+                    </div>
+
+                    <div class="alert alert-info mt-3">
+                        <p>Do not forget to join the Discord server</p>
+                        <a class="btn btn-primary" href="<%= discord_url %>">Discord</a>
+                    </div>
+
+                    <a href="/" class="btn btn-primary mt-4">Go back home</a>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhysCraft Homepage</title>
+
+    <link href="./static/styles.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card shadow p-4" style="width: 100%; max-width: 600px;">
+            <div class="card-body text-center">
+                <h1 class="display-4">PhysCraft</h1>
+                <section class="mt-4">
+                    <h3 class="text-danger">Whitelist request denied!</h3>
+
+                    <% if (error == 'invalid_captcha') { %>
+                        <div class="alert alert-warning mt-3">
+                            <p>The captcha was invalid. Please try again!</p>
+                        </div>
+                    <% } %>
+
+                    <% if (error == 'invalid_email') { %>
+                        <div class="alert alert-danger mt-3">
+                            <p>We are very sorry but the email address you provided '<b><%= email %></b>' is not allowed on the server!</p>
+                            <p>Only email addresses <i>@studenti.uniroma1.it</i> and <i>@uniroma1.it</i> are allowed to be in the whitelist.</p>
+                        </div>
+                    <% } %>
+
+                    <% if (error == 'invalid_username') { %>
+                        <div class="alert alert-danger mt-3">
+                            <p>We are very sorry but the username you provided '<b><%= username %></b>' does not exist according to Mojang.</p>
+                            <p>Check if you made any spelling errors.</p>
+                        </div>
+                    <% } %>
+
+                    <% if (error == 'invalid_secret') { %>
+                        <div class="alert alert-warning mt-3">
+                            <p>This link is not valid. If you believe this is an error try again or contact Achille. If you are playing with the webserver have fun.</p>
+                        </div>
+                    <% } %>
+
+                    <% if (error == 'redundant_username') { %>
+                        <div class="alert alert-info mt-3">
+                            <p>The player '<b><%= username %></b>' is already whitelisted on the server.</p>
+                        </div>
+                    <% } %>
+
+                    <% if (error == 'ratelimit_email') { %>
+                        <div class="alert alert-warning mt-3">
+                            <p>This service is rate-limited! If you did not receive the verification email, please wait 20 minutes before trying to register again.</p>
+                        </div>
+                    <% } %>
+
+                    <a href="/" class="btn btn-primary mt-4">Go back home</a>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXlRvY4iG2hYznFfrFDi3GdWt2E5jC0rQPR1Kj8GA2ZpFREpKA+5martpZTo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGcbFvjJ8ktK2YI5KTxKflb4Ge8l5Q1DhZjB11Gjfj5aXh9ANmoS5u9ziVk" crossorigin="anonymous"></script>
+</body>
+
+</html>

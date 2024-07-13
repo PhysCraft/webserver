@@ -1,0 +1,4 @@
+node_modules
+bills
+.env
+*.tar

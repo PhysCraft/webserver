@@ -1,0 +1,64 @@
+#whitelist_form_container {
+    background-image: url("dirt.jpg");
+    background-repeat: repeat;
+    background-size: 100px 100px;
+    color: white;
+    text-shadow: 2px 2px 4px black;
+    border: 5px solid black;
+    position: relative;
+    padding: 20px;
+}
+
+#ipaddress_container {
+    background-image: url("stone.jpg");
+    background-repeat: repeat;
+    background-size: 100px 100px;
+    color: white;
+    text-shadow: 2px 2px 4px black;
+    border: 5px solid black;
+    position: relative;
+    padding: 20px;
+}
+
+
+#donation_container {
+    background-image: url("diamond.png");
+    background-repeat: repeat;
+    background-size: 100px 100px;
+    color: white;
+    text-shadow: 2px 2px 4px black;
+    border: 5px solid black;
+    position: relative;
+    padding: 20px;
+}
+
+.opaque_paragraph {
+    background-color: black;
+}
+
+
+.blurred_text_background label,
+.blurred_text_background p:not(.opaque_paragraph),
+.blurred_text_background h1 {
+    position: relative;
+    z-index: 1;
+}
+
+.blurred_text_background label::before,
+.blurred_text_background p::before,
+.blurred_text_background h1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1px);
+    z-index: -1;
+}
+
+.copy-input {
+    cursor: pointer;
+    text-align: center;
+}

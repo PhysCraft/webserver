@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhysCraft Homepage</title>
+
+    <link href="/static/styles.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
+    <link href="./static/logo.webp" rel="icon">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="./static/logo.webp" alt="Logo" style="height: 30px; margin-right: 10px;">
+                PhysCraft
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/bills">Bills</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container d-flex justify-content-center mt-5">
+        <div class="card p-4 blurred_text_background" style="width: 400px;" id="ipaddress_container">
+            <div class="mb-3">
+                <h1 class="text-center mb-4">Server</h1>
+                <label for="addressInput">The address for the server is</label>
+            </div>
+            <input id="addressInput" readonly class="form-control copy-input mb-3" value="<%= address %>"
+                onclick="copyToClipboard()">
+            <div style="visibility: hidden;" id="notification" class="text-success">
+                <p>Copied to clipboard!</p>
+            </div>
+            <p class="opaque_paragraph">You can join once you get whitelisted below! The server is Vanilla Minecraft
+                1.21. Have fun!
+            </p>
+        </div>
+    </div>
+
+    <div class="container d-flex justify-content-center mt-5">
+        <div class="card p-4 blurred_text_background" style="width: 400px;" id="whitelist_form_container">
+            <h1 class="text-center mb-4">Whitelist me!</h1>
+            <form method="post" action="whitelist_request" class="user_whitelist_form">
+                <div class="mb-3">
+                    <label for="input_whitelist_username" class="form-label">Current Minecraft username</label>
+                    <input id="input_whitelist_username" name="username" rel="text" class="form-control">
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="input_whitelist_email" class="form-label">Sapienza email address</label>
+                    <input id="input_whitelist_email" name="email" rel="email" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label for="captcha" class="form-label">Captcha</label>
+                    <div id="captcha" class="h-captcha" data-sitekey="fe00680c-b81c-49a0-ad08-2a4eae5098d4"></div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-success btn-lg" rel="submit">Verify</button>
+                    </div>
+                </div>
+            </form>
+
+            <p class="opaque_paragraph">I decided setting up a whitelist to avoid the server being abused by malicious
+                actors, which is possible since it is a simple vanilla server. I hope that us student of Physics can
+                mantain a safe and inclusive environment.
+            </p>
+            <p class="opaque_paragraph">The same email address CAN be used more than once, so if you want to play with
+                someone that is not a Sapienza student, you can use your email to whitelist them. As long as you trust
+                them, we trust them.
+            </p>
+            <p class="opaque_paragraph">
+                Only an hash of the email is stored on my server, from which the original email CAN NOT be derived.
+            </p>
+        </div>
+    </div>
+
+    <div class="container d-flex justify-content-center mt-5">
+        <div class="card p-4 blurred_text_background" style="width: 400px;" id="donation_container">
+            <h1 class="text-center mb-4">Donate</h1>
+            <div class="container d-flex justify-content-center">
+                <iframe src="https://www.paypal.com/giving/campaigns?campaign_id=MB3ZD647CWCXL"
+                    title="PayPal donate campaign card" frameborder="0" width=382 height=550 scrolling="no"></iframe>
+            </div>
+            <p class="opaque_paragraph">You can check all the bills I pay for the server at <a href="/bills">/bills</a>.
+                Helping out is completelly optional. All the money goes toward mantaining the server, I do NOT get paid.
+            </p>
+        </div>
+    </div>
+    <!-- 
+    <section>
+        <h3>Online players</h3>
+        <input style="width: 100%;" multiple readonly value="<%= online_players %>">
+    </section> -->
+
+    <script>
+        function copyToClipboard() {
+            var copyText = document.getElementById("addressInput");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); /* For mobile devices */
+            document.execCommand("copy");
+
+            var notification = document.getElementById("notification");
+            notification.style.visibility = "visible";
+            setTimeout(function () {
+                notification.style.visibility = "hidden";
+            }, 2000);
+        }
+    </script>
+</body>
+
+</html>

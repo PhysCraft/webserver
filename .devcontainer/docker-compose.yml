@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ../..:/workspaces:cached
+    command: sleep infinity
+    network_mode: host
+  db:
+    image: postgres:latest
+    restart: unless-stopped
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: physcraft
+      POSTGRES_USER: physcraft
+      POSTGRES_DB: physcraft
+      POSTGRES_PORT: 5433
+    network_mode: host
+
+volumes:
+  postgres-data:
