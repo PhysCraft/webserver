@@ -38,18 +38,18 @@ module.exports.whitelist_player = async function (uuid) {
 
 player_list = "";
 
-setInterval(async () => {
-    try {
-        rconClient = await get_rcon_client();
+// setInterval(async () => {
+//     try {
+//         rconClient = await get_rcon_client();
 
-        const player_list = await rconClient.send('list');
-        await rconClient.disconnect();
+//         const player_list = await rconClient.send('list');
+//         await rconClient.disconnect();
 
-        player_list = player_list.payload.split(':')[1];
-    } catch (error) {
-        player_list = "Server offline"
-    }
-}, 30 * 1000);
+//         player_list = player_list.payload.split(':')[1];
+//     } catch (error) {
+//         player_list = "Server offline"
+//     }
+// }, 30 * 1000);
 
 module.exports.get_online_players = async function () {
     return player_list;
