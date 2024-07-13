@@ -24,7 +24,11 @@ module.exports.whitelist_player = async function (uuid) {
         }
         const username = username_mut;
 
-        await rconClient.send(`whitelist add ${username}`);
+        console.log(`Whitelisting player ${username}`);
+
+        const server_response = await rconClient.send(`whitelist add ${username}`);
+        console.log(`[RCON Inboud]: ${server_response.payload}`);
+
         await rconClient.disconnect();
 
         database.set_player_whitelisted(uuid);
