@@ -203,5 +203,6 @@ app.listen(port, async () => {
 
     await database.initialize();
 
-    await rcon.initialize();
+    await rcon.whitelist_all();
+    setInterval(async () => await rcon.whitelist_all(), 300 * 1000);
 });
